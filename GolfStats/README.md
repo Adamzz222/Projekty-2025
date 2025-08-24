@@ -7,7 +7,7 @@ Heads-Up Display (HUD) for VW Golf IV – real-time car statistics on OLED scree
 ## 📷 Preview
 
 ### HUD in action:
-![HUD Demo](images/hud-demo.jpg)
+![Image](https://github.com/user-attachments/assets/b6d75f08-d0ef-4bcd-9987-e7be7c5bd869)
 
 ### Wiring diagram:
 ![Wiring](images/wiring.png)
