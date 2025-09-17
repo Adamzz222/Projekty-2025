@@ -57,7 +57,7 @@ I_{\text{IN max}} = \frac{I_{\text{OUT max}} \cdot V_{\text{OUT}}}{\eta \cdot V_
 = \frac{2 \cdot 5}{0.88 \cdot 14.5}
 \approx \mathbf{0.78\mathrm{A}}
 $$
-<div align="center">
+
 Zatem biorąc pod uwagę zapas zastosuję bezpiecznik 1A szklany (//)
 <p></p>
   
@@ -71,6 +71,8 @@ BLEBLEBLE
   <summary>EN</summary>
   hujhujhuj
 </details>
+
+<img src=https://github.com/user-attachments/assets/0b20cad9-ed7a-4322-ad7e-612bf58fbd50>
 
 
 
