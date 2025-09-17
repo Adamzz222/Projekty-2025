@@ -20,7 +20,7 @@ I will read data from the ECU using an **ELM327** **OBD-II** adapter with **Blue
 </details>
 
 
-Bilans prądu dla wyjścia przetwornicy dla realnych wartości prądu w odbiornikach (Current draw budget at the converter output):
+1. Bilans prądu dla wyjścia przetwornicy dla realnych wartości prądu w odbiornikach (Current draw budget at the converter output):
 
 $$
 \begin{aligned}
@@ -33,12 +33,16 @@ I_{\mathrm{OUT}}       &= 100 + 5 + 200 + 800 = 1105\ \mathrm{mA} \approx 1.1 < 
 $$
 
 <div align="center">
-LM2596 będzie OK (LM2596 will be OK)
+LM2596 będzie OK (LM2596 will be OK)✅
+<p></p>
+</div>
+  2. Wybór bezpiecznika (fuse choice)
+
+<div align="center">
 <p></p>
 
-**Wybór bezpiecznika (fuse choose)**  $\eta \approx 0.88$, step-down from $V_{\text{in}}=14.5\,\mathrm{V}$ to $V_{\text{out}}=5\,\mathrm{V}$, and $I_{\text{OUT,max}}=2\,\mathrm{A}$:
+$\eta \approx 0.88$, step-down from $V_{\text{in}}=14.5\,\mathrm{V}$ to $V_{\text{out}}=5\,\mathrm{V}$, and $I_{\text{OUT,max}}=2\,\mathrm{A}$:
 
-</div>
 
 $$
 \eta \cdot P_{\text{IN}} = P_{\text{OUT}}
@@ -53,12 +57,21 @@ I_{\text{IN max}} = \frac{I_{\text{OUT max}} \cdot V_{\text{OUT}}}{\eta \cdot V_
 = \frac{2 \cdot 5}{0.88 \cdot 14.5}
 \approx \mathbf{0.78\mathrm{A}}
 $$
+<div align="center">
+Zatem biorąc pod uwagę zapas zastosuję bezpiecznik 1A szklany (//)
+<p></p>
+  
+</div>
 
 
+## 🔌Schemat
 
-## 🔌Rozdzielenie prądu 
+BLEBLEBLE
+<details>
+  <summary>EN</summary>
+  hujhujhuj
+</details>
 
-Wiadomą rzeczą jest, że prąd nie jest potrzebny tylko do zasilania płytki, ale wyświetlacza, joysticka i w bonusie również kamerki dlatego na bazie płytki uniwersalnej do THT i złączy AVR raster zlutowałem taki moduł, gdzie jedna szyna to + druga to -, może niezbyt estetyczne rozwiązanie ze wzlędu na to, że kable będą musiały być rozdzielone na przewody o wiele wcześniej niż gdyby każde złącze śrubowe miało swój + i - ale za to prostsze i bezpieczniejsze moim zdaniem. Na ten moduł zaprojektowałem w Autodesk Inventor obudowę i wydrukowałem.
 
 
 
