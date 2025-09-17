@@ -1,11 +1,11 @@
 
 
-# 🚗 GolfView 
+#  GolfView - DIY dashboard
 
 
 ## 💡 Wstęp (Introduce)
 
-Jako posiadacz Golfa IV z 2002 postanowiłem wykonać projekt, który pozwoli mi wychwycić dane niedostępne z pozycji kokpitu, przetworzyć je i wyświetlać na dodatkowym ekranie. Oryginalny dashboard poza kontrolkami i kilometrażem wyświetla tylko prędkość, RPM, poziom paliwa i temperaturę oleju lecz brakuje na nim np. spalania, średniej prędkości czy innych ważnych informacji.
+Jako posiadacz Golfa IV z 2002 postanowiłem wykonać projekt, który pozwoli mi wychwycić dane niedostępne z pozycji kokpitu, przetworzyć je i wyświetlać na dodatkowym ekranie. Oryginalny dashboard poza kontrolkami i kilometrażem wyświetla tylko prędkość, RPM, poziom paliwa i temperaturę oleju lecz brakuje na nim np. spalania, średniej prędkości czy innych ważnych informacji. Czy uda się to poprawić w domu tanim kosztem? To się okaże, do dzieła!
 
 
 ## 📏Planowanie (Planning)
@@ -20,7 +20,7 @@ I will read data from the ECU using an **ELM327** **OBD-II** adapter with **Blue
 </details>
 
 
-1. Bilans prądu dla wyjścia przetwornicy dla realnych wartości prądu w odbiornikach (Current draw budget at the converter output):
+**1. Bilans prądu dla wyjścia przetwornicy dla realnych wartości prądu w odbiornikach (Current draw budget at the converter output):**
 
 $$
 \begin{aligned}
@@ -36,7 +36,8 @@ $$
 LM2596 będzie OK (LM2596 will be OK)✅
 <p></p>
 </div>
-  2. Wybór bezpiecznika (fuse choice)
+
+**2. Wybór bezpiecznika (fuse choice)**
 
 <div align="center">
 <p></p>
@@ -72,9 +73,13 @@ BLEBLEBLE
   hujhujhuj
 </details>
 
-<img src=https://github.com/user-attachments/assets/0b20cad9-ed7a-4322-ad7e-612bf58fbd50>
+<img src=https://github.com/user-attachments/assets/c0414036-ffb5-4203-a85c-da5e9e6c3d69>
+Wstawka z przyszłości: Na tym etapie świadomie nie dodawałem zewnętrznego filtra LC: moduł LM2596 ma bazową filtrację, a pomiary i testy drogowe nie wykazały zakłóceń (resetów ESP32/artefaktów OLED). Zostawiłem miejsce na dławik 10–22 µH i kondensator 470–1000 µF na przyszłość — dołożę je tylko, jeśli pojawią się problemy w eksploatacji.
 
 
-
-
- 3) 
+## 🛠Budowa
+BLEBLEBLE
+<details>
+  <summary>EN</summary>
+  hujhujhuj
+</details>
