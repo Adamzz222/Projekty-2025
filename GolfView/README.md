@@ -67,7 +67,7 @@ Zatem biorąc pod uwagę zapas zastosuję bezpiecznik 1A szklany (//)
 
 ## 🔌Schemat
 
-BLEBLEBLE
+Finalnie rozważyłem taki schemat:
 <details>
   <summary>EN</summary>
   hujhujhuj
@@ -78,8 +78,19 @@ Wstawka z przyszłości: Na tym etapie świadomie nie dodawałem zewnętrznego f
 
 
 ## 🛠Budowa
-BLEBLEBLE
+Budowę całego układu rozpocząłem od zaprojektowania w Autodesk Inventor obudowy na ESP32 razem z miejscem na joystick. Wymiary dopasowałem do wolnej półki DIN1 w moim aucie, oto krótka animacja 3-częściowej, najważniejszej obudowy (funfact: generowała się w inventor studio aż 7h). Obudowę wydrukowałem z PLA na moim Bambu Lab A1 mini
 <details>
   <summary>EN</summary>
   hujhujhuj
 </details>
+
+![Demo działania](https://github.com/user-attachments/assets/fcec71b2-29f3-4b15-aafa-8b4e60a39a53)
+
+Kolejnymi obudowami jakie wydrukowałem są kolejno obudowa na OLED (3 części) oraz obudowa na PCB THT (który zlutowałem by prosto rozdzielić zasilanie 5V na kilka odbiorników za pomocą rasterów):
+<details>
+  <summary>EN</summary>
+  hujhujhuj
+</details>
+
+
+
