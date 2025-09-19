@@ -84,13 +84,20 @@ Budowę całego układu rozpocząłem od zaprojektowania w Autodesk Inventor obu
   hujhujhuj
 </details>
 
-![Demo działania](https://github.com/user-attachments/assets/fcec71b2-29f3-4b15-aafa-8b4e60a39a53)
+<div align="center">
+  <img src="https://github.com/user-attachments/assets/fcec71b2-29f3-4b15-aafa-8b4e60a39a53" width="400">
+</div>
+
 
 Kolejnymi obudowami jakie wydrukowałem są kolejno obudowa na OLED (3 części) oraz obudowa na PCB THT (który zlutowałem by prosto rozdzielić zasilanie 5V na kilka odbiorników za pomocą rasterów):
 <details>
   <summary>EN</summary>
   hujhujhuj
 </details>
+<div align="center">
+  <img src="https://github.com/user-attachments/assets/9611d9d1-51a3-49a0-ad28-ab50cbb9df87" width="400">
+</div>
+
 
 
 
