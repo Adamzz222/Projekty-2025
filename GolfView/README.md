@@ -87,7 +87,7 @@ Kolejnymi obudowami jakie wydrukowałem są kolejno obudowa na OLED (3 części)
 
 <div align="center">
   <img src="https://github.com/user-attachments/assets/fcec71b2-29f3-4b15-aafa-8b4e60a39a53" width="400">
-   <img src="https://github.com/user-attachments/assets/9af4d9d1-ee5a-410d-9617-a299947785f1" width="400">
+   <img src="https://github.com/user-attachments/assets/34922c39-fbf0-49b5-9630-c83a7855d78d" width="400">
 </div>
 
 
