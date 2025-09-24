@@ -78,7 +78,8 @@ Wstawka z przyszłości: Na tym etapie świadomie nie dodawałem zewnętrznego f
 
 
 ## 🛠Budowa
-Budowę całego układu rozpocząłem od zaprojektowania w Autodesk Inventor obudowy na ESP32 razem z miejscem na joystick. Wymiary dopasowałem do wolnej półki DIN1 w moim aucie, oto krótka animacja 3-częściowej, najważniejszej obudowy (funfact: generowała się w inventor studio aż 7h). Obudowę wydrukowałem z PLA na moim Bambu Lab A1 mini
+Budowę całego układu rozpocząłem od zaprojektowania w Autodesk Inventor obudowy na ESP32 razem z miejscem na joystick. Wymiary dopasowałem do wolnej półki DIN1 w moim aucie, oto krótka animacja 3-częściowej, najważniejszej obudowy (funfact: generowała się w inventor studio aż 7h). Obudowę wydrukowałem z PLA na moim Bambu Lab A1 mini (gif a ). 
+Kolejnymi obudowami jakie wydrukowałem są kolejno obudowa na OLED (3 części) oraz obudowa na PCB THT (który zlutowałem by prosto rozdzielić zasilanie 5V na kilka odbiorników za pomocą złącz śrubowych, gif b):
 <details>
   <summary>EN</summary>
   hujhujhuj
