@@ -1,5 +1,4 @@
 #ifndef LOGO_H
-#define LOGO_H
 #include <Arduino.h>
 
 const unsigned char logo_vw_bmp [] PROGMEM = {

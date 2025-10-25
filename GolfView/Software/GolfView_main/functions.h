@@ -4,14 +4,14 @@
 
 // Udostępnij instancję OBD z .ino
 extern ELM327 obd;
+
 // ===== Zmienne globalne PID =====
 extern float rpm;
 extern float speed;
 extern float tempC;
 extern float engineLoad;
 extern float iAT;
-extern float MaP;
-extern float tps_rel;     
+extern float MaP;    
 
 // Flagi sesji
 extern bool hasMoved;
@@ -36,20 +36,23 @@ extern unsigned long currentMin;
 
 // ===== Tryby =====
 extern int mode;
-constexpr uint8_t MODE_COUNT = 4; // 0: live, 1: trasa, 2: last, 3: errors
+constexpr uint8_t MODE_COUNT = 5; // 0: live, 1: trasa, 2: last, 3: errors
 
-// ===== Debounce joysticka =====
-extern unsigned long lastJoyTime;
-constexpr unsigned long JOY_DEBOUNCE_MS = 50;
+
+
+
 
 // ===== Funkcje PID =====
-float readFloatPidBlocking(float (ELM327::*func)(), uint16_t timeout = 1000);
-float readFloatPidBlocking(uint8_t (ELM327::*func)(), uint16_t timeout = 1000);
-int   readIntPidBlocking(int32_t (ELM327::*func)(), uint16_t timeout = 1000);
+float readPid(float   (ELM327::*func)(),  uint16_t timeout = 1000);
+float readPid(uint8_t (ELM327::*func)(),  uint16_t timeout = 1000);
+float readPid(int32_t (ELM327::*func)(),  uint16_t timeout = 1000);
 
 // ===== Zapisywanie/wczytywanie last =====
 void saveLastToNVS(float dist, float avgs, float avgc, unsigned long mins);
 void loadLastFromNVS();
+
+// ----Obliczenia
+void computeInstantSimple(float dt);
 
 // ===== DTC =====
 extern String dtcList[6];

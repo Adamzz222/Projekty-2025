@@ -15,7 +15,7 @@ unsigned long last_timeMin = 0;
 // ===== Zmienne globalne PID =====
 float rpm = NAN;
 float speed = NAN;
-float tempC = NAN;
+float tempC = -50;
 float engineLoad = NAN;
 float iAT = NAN;
 float MaP = NAN;
@@ -39,39 +39,82 @@ unsigned long lastJoyTime = 0;
 String dtcList[6];
 uint8_t dtcCount = 0;
 
-// ================== FUNKCJE ==================
-float readFloatPidBlocking(float (ELM327::*func)(), uint16_t timeout) {
-    unsigned long start = millis();
-    float val = NAN;
-    do {
-        val = (obd.*func)();
-        if (!isnan(val) && obd.nb_rx_state == ELM_SUCCESS) return val;
-        delay(10);
-    } while (millis() - start < timeout);
-    return NAN;
+
+
+void computeInstantSimple(float dt)
+{
+  // Jeśli brakuje danych – nic nie rób
+  if (isnan(rpm) || isnan(MaP) || isnan(iAT) || isnan(speed)) return;
+
+  float fuelLps = 0.0f;
+
+  // licz tylko powyżej 5 km/h (jak w Twoim kodzie)
+  if (speed > 5.0f) {
+    // DFCO / odjęty gaz: przy małym loadzie ustaw spalanie na 0
+    if (!isnan(engineLoad) && engineLoad > 5.0f) {
+      // Używamy tych samych stałych co wcześniej (tu wpisane jawnie, żeby nie było konfliktów linkera)
+      const float R_AIR_   = 287.05f;
+      const float ENG_COEF_= 0.002f * 0.5f * 0.85f;
+      const float AFR_E_   = 14.7f;
+      const float RHO_F_   = 745.0f;
+
+      const float air_kgps =
+        ENG_COEF_ * (rpm / 60.0f) * (MaP * 1000.0f) / (R_AIR_ * (iAT + 273.15f));
+
+      fuelLps         = (air_kgps / AFR_E_) * 1000.0f / RHO_F_;              // L/s
+      instConsumption = (fuelLps * 3600.0f / speed) * 100.0f;                 // L/100 km
+    } else {
+      instConsumption = 0.0f;   // DFCO
+    }
+
+    totalFuel += 4*fuelLps * dt;  // całka paliwa
+    hasMoved  = true;
+  }
 }
 
-float readFloatPidBlocking(uint8_t (ELM327::*func)(), uint16_t timeout) {
-    unsigned long start = millis();
-    uint8_t raw = 0;
-    do {
-        raw = (obd.*func)();
-        if (obd.nb_rx_state == ELM_SUCCESS) return float(raw);
-        delay(10);
-    } while (millis() - start < timeout);
-    return NAN;
+// ---- u góry pliku:
+#define INVALID  (-50.0f)
+
+// ---- definicje:
+
+float readPid(float (ELM327::*func)(), uint16_t timeout) {
+  unsigned long start = millis();
+  float val = INVALID;
+  do {
+    val = (obd.*func)();                                     // blokujące wywołanie
+    if (!isnan(val) && obd.nb_rx_state == ELM_SUCCESS)       // tylko nb_rx_state
+      return val;
+    delay(10);
+  } while (millis() - start < timeout);
+  return INVALID;
 }
 
-int readIntPidBlocking(int32_t (ELM327::*func)(), uint16_t timeout) {
-    unsigned long start = millis();
-    int32_t val = 0;
-    do {
-        val = (obd.*func)();
-        if (val >= 0 && obd.nb_rx_state == ELM_SUCCESS) return val;
-        delay(10);
-    } while (millis() - start < timeout);
-    return -1;
+float readPid(uint8_t (ELM327::*func)(), uint16_t timeout) {
+  unsigned long start = millis();
+  uint8_t raw = 0;                                           // NIE -50 (zawinie się)
+  do {
+    raw = (obd.*func)();
+    if (obd.nb_rx_state == ELM_SUCCESS)
+      return float(raw);
+    delay(10);
+  } while (millis() - start < timeout);
+  return INVALID;
 }
+
+float readPid(int32_t (ELM327::*func)(), uint16_t timeout) {
+  unsigned long start = millis();
+  int32_t val = 0;
+  do {
+    val = (obd.*func)();
+    if (obd.nb_rx_state == ELM_SUCCESS)                      // bez val >= 0
+      return float(val);
+    delay(10);
+  } while (millis() - start < timeout);
+  return INVALID;
+}
+
+
+
 
 
 void saveLastToNVS(float dist, float avgs, float avgc, unsigned long mins) {
